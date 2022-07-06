@@ -140,21 +140,26 @@
 	<center>
 		<span style="font-size:36px">Talking Head from Speech Audio using a Pre-trained Image Generator</span>
 		<table align=center width=600px>
-			<table align=center width=600px>
+			<table align=center width=700px>
 				<tr>
-					<td align=center width=100px>
+					<td align=center width=170px>
 						<center>
-							<span style="font-size:24px"><a href="https://en.wikipedia.org/wiki/James_J._Gibson">First Author</a></span>
+							<span style="font-size:24px"><a href="https://en.wikipedia.org/wiki/James_J._Gibson">Mohammed Alghamdi</a></span>
 						</center>
 					</td>
 					<td align=center width=100px>
 						<center>
-							<span style="font-size:24px"><a href="https://en.wikipedia.org/wiki/James_J._Gibson">Second Author</a></span>
+							<span style="font-size:24px"><a href="https://en.wikipedia.org/wiki/James_J._Gibson">He Wang</a></span>
 						</center>
 					</td>
 					<td align=center width=100px>
 						<center>
-							<span style="font-size:24px"><a href="https://en.wikipedia.org/wiki/James_J._Gibson">Third Author</a></span>
+							<span style="font-size:24px"><a href="https://en.wikipedia.org/wiki/James_J._Gibson">Andy Bulpitt</a></span>
+						</center>
+					</td>
+					<td align=center width=100px>
+						<center>
+							<span style="font-size:24px"><a href="https://en.wikipedia.org/wiki/James_J._Gibson">David Hogg</a></span>
 						</center>
 					</td>
 				</tr>
@@ -186,13 +191,13 @@
 				</td>
 			</tr>
 		</table>
-		<table align=center width=850px>
+		<!-- <table align=center width=850px>
 			<tr>
 				<td>
 					This was a template originally made for <a href="http://richzhang.github.io/colorization/">Colorful Image Colorization</a>. The code can be found in this <a href="https://github.com/richzhang/webpage-template">repository</a>.
 				</td>
 			</tr>
-		</table>
+		</table> -->
 	</center>
 
 	<hr>
@@ -201,7 +206,17 @@
 		<center><h1>Abstract</h1></center>
 		<tr>
 			<td>
-				This is my abstract.
+				We propose a novel method for generating high-resolution videos of talking-heads from speech audio and a single 'identity' 
+				image. Our method is based on a convolutional neural network model that incorporates a pre-trained StyleGAN generator. 
+				We model each frame as a point in the latent space of StyleGAN so that a video corresponds to a  trajectory through the
+				 latent space. Training the network is in two stages. The first stage is to model trajectories in the latent space conditioned 
+				 on speech utterances. To do this, we use an existing encoder to invert the generator, mapping from each video frame into the 
+				 latent space. We train a recurrent neural network to map from speech utterances to displacements in the latent space of the
+				  image generator. These displacements are relative to the back-projection into the latent space of an identity image chosen 
+				  from the individuals depicted in the training dataset. In the second stage, we improve the visual quality of the generated
+				   videos by tuning the image generator on a single image or a short video of any chosen identity. We evaluate our model on 
+				   standard measures (PSNR, SSIM, FID and LMD) and show that it significantly outperforms recent state-of-the-art methods. 
+				   Finally, we report on ablation experiments that validate the components of the model.
 			</td>
 		</tr>
 	</table>
