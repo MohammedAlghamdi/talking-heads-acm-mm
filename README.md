@@ -1,4 +1,4 @@
-## <b>Webpage template</b>
+## <b>Talking Head from Speech Audio using a Pre-trained Image Generator</b>
 
-This webpage template was made for 
+Code will be released at later date
 
