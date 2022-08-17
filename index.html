@@ -146,12 +146,12 @@
 	<br>
 	<center>
 		<span style="font-size:36px">Talking Head from Speech Audio using a Pre-trained Image Generator</span>
-		<table align=center width=600px>
-			<table align=center width=700px>
+		<table align=center width=800px>
+			<table align=center width=800px>
 				<tr>
-					<td align=center width=170px>
+					<td align=center width=250px>
 						<center>
-							<span style="font-size:24px"><a href="">Mohammed Alghamdi</a></span>
+							<span style="font-size:24px"><a href="">Mohammed M. Alghamdi</a></span>
 						</center>
 					</td>
 					<td align=center width=100px>
@@ -159,14 +159,15 @@
 							<span style="font-size:24px"><a href="http://drhewang.com/">He Wang</a></span>
 						</center>
 					</td>
-					<td align=center width=100px>
+					<td align=center width=150px>
 						<center>
-							<span style="font-size:24px"><a href="https://eps.leeds.ac.uk/computing/staff/115/professor-andy-bulpitt">Andy Bulpitt</a></span>
+							<span style="font-size:24px"><a href="https://eps.leeds.ac.uk/computing/staff/115/professor-andy-bulpitt">Andrew J. Bulpitt</a></span>
 						</center>
 					</td>
-					<td align=center width=100px>
+					<td align=center width=150px>
+
 						<center>
-							<span style="font-size:24px"><a href="https://eps.leeds.ac.uk/computing/staff/84/professor-david-hogg">David Hogg</a></span>
+							<span style="font-size:24px"><a href="https://eps.leeds.ac.uk/computing/staff/84/professor-david-hogg">David C. Hogg</a></span>
 						</center>
 					</td>
 				</tr>
@@ -193,7 +194,7 @@
 			<tr>
 				<td width=260px>
 					<center>
-						<img class="round" style="width:1024px" src="./resources/teaser.png"/>
+						<img class="round" style="width:1024px" src="./resources/Thumbnail.jpg"/>
 						<!-- <embed src="./resources/teaser.pdf" width="800px" height="2100px" /> -->
 					</center>
 				</td>
@@ -214,17 +215,16 @@
 		<center><h1>Abstract</h1></center>
 		<tr>
 			<td>
-				We propose a novel method for generating high-resolution videos of talking-heads from speech audio and a single 'identity' 
-				image. Our method is based on a convolutional neural network model that incorporates a pre-trained StyleGAN generator. 
-				We model each frame as a point in the latent space of StyleGAN so that a video corresponds to a  trajectory through the
-				 latent space. Training the network is in two stages. The first stage is to model trajectories in the latent space conditioned 
-				 on speech utterances. To do this, we use an existing encoder to invert the generator, mapping from each video frame into the 
-				 latent space. We train a recurrent neural network to map from speech utterances to displacements in the latent space of the
-				  image generator. These displacements are relative to the back-projection into the latent space of an identity image chosen 
-				  from the individuals depicted in the training dataset. In the second stage, we improve the visual quality of the generated
-				   videos by tuning the image generator on a single image or a short video of any chosen identity. We evaluate our model on 
-				   standard measures (PSNR, SSIM, FID and LMD) and show that it significantly outperforms recent state-of-the-art methods. 
-				   Finally, we report on ablation experiments that validate the components of the model.
+
+				Synthesising video of talking heads from speech audio has many potential applications, such as video conferencing, video animation
+				production and virtual assistants. Although there has been considerable prior work on this task, the quality of generated videos is
+				typically limited in terms of overall realism and resolution. In this paper, we propose an audio-driven model that synthesises highresolution talking-head videos (1024 x 1024 in our experiments) from a single identity image.
+
+				Many previous models generate low-resolution video or cropped faces. Low resolution video is generally not suitable for deployment in many real world applications, such as a virtual assistant. A common approach has been to use intermediate features such as facial landmarks to map from audio to output video.  Another approach has been to edit an existing talking-head video to blend in a new mouth region synthesised from audio. 
+
+				 
+
+
 			</td>
 		</tr>
 	</table>
