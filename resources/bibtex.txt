@@ -1,6 +1,6 @@
-@inproceedings{author20XXtitle,
-  title={Please cite me},
-  author={Author, First and Author, Second and Author, Third},
-  booktitle={Conference},
-  year={20XX}
+@inproceedings{alghamdi2022talking-head,
+  title={Talking Head from Speech Audio using a Pre-trained Image Generator},
+  author={Alghamdi, Mohammed M. and Wang, He and Bulpitt, Andrew J., and Hogg, David C.},
+  booktitle={Proceedings of the 30th ACM International Conference on Multimedia},
+  year={2022}
 }

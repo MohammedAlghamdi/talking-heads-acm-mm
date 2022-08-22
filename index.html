@@ -1,344 +1,392 @@
-<script src="http://www.google.com/jsapi" type="text/javascript"></script> 
-<script type="text/javascript">google.load("jquery", "1.3.2");</script>
-
-<style>
-	.bottom-three {
-	   margin-bottom: 8cm;
-	}
-  </style>
-
-
-<style type="text/css">
-	body {
-		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-		font-weight:300;
-		font-size:18px;
-		margin-left: auto;
-		margin-right: auto;
-		width: 1100px;
-	}
-	
-	h1 {
-		font-size:32px;
-		font-weight:300;
-	}
-	
-	.disclaimerbox {
-		background-color: #eee;		
-		border: 1px solid #eeeeee;
-		border-radius: 10px ;
-		-moz-border-radius: 10px ;
-		-webkit-border-radius: 10px ;
-		padding: 20px;
-	}
-
-	video.header-vid {
-		height: 140px;
-		border: 1px solid black;
-		border-radius: 10px ;
-		-moz-border-radius: 10px ;
-		-webkit-border-radius: 10px ;
-	}
-	
-	img.header-img {
-		height: 140px;
-		border: 1px solid black;
-		border-radius: 10px ;
-		-moz-border-radius: 10px ;
-		-webkit-border-radius: 10px ;
-	}
-	
-	img.rounded {
-		border: 1px solid #eeeeee;
-		border-radius: 10px ;
-		-moz-border-radius: 10px ;
-		-webkit-border-radius: 10px ;
-	}
-	
-	a:link,a:visited
-	{
-		color: #1367a7;
-		text-decoration: none;
-	}
-	a:hover {
-		color: #208799;
-	}
-	
-	td.dl-link {
-		height: 160px;
-		text-align: center;
-		font-size: 22px;
-	}
-	
-	.layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
-		box-shadow:
-		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
-		5px 5px 0 0px #fff, /* The second layer */
-		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
-		10px 10px 0 0px #fff, /* The third layer */
-		10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
-		15px 15px 0 0px #fff, /* The fourth layer */
-		15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
-		20px 20px 0 0px #fff, /* The fifth layer */
-		20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
-		25px 25px 0 0px #fff, /* The fifth layer */
-		25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
-		margin-left: 10px;
-		margin-right: 45px;
-	}
-
-	.paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
-		box-shadow:
-		0px 0px 1px 1px rgba(0,0,0,0.35); /* The top layer shadow */
-
-		margin-left: 10px;
-		margin-right: 45px;
-	}
-
-
-	.layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
-		box-shadow:
-		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
-		5px 5px 0 0px #fff, /* The second layer */
-		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
-		10px 10px 0 0px #fff, /* The third layer */
-		10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
-		margin-top: 5px;
-		margin-left: 10px;
-		margin-right: 30px;
-		margin-bottom: 5px;
-	}
-	
-	.vert-cent {
-		position: relative;
-		top: 50%;
-		transform: translateY(-50%);
-	}
-	
-	hr
-	{
-		border: 0;
-		height: 1px;
-		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-	}
-</style>
-
+<!DOCTYPE html>
 <html>
 <head>
-	<title>talking-heads-acm-mm</title>
-	<meta property="og:image" content="Path to my teaser.png"/> <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
-	<meta property="og:title" content="Talking Head from Speech Audio using a Pre-trained Image Generator" />
-	<meta property="og:description" content="Paper description." />
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Talking Head from Speech Audio using a Pre-trained Image Generator">
+  <meta name="keywords" content="Video synthesis">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Talking Head from Speech Audio using a Pre-trained Image Generator</title>
 
-	<!-- Get from Google Analytics -->
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src=""></script> 
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-		gtag('config', 'UA-75863369-6');
-	</script>
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
 </head>
-
 <body>
-	<br>
-	<center>
-		<span style="font-size:36px">Talking Head from Speech Audio using a Pre-trained Image Generator</span>
-		<table align=center width=800px>
-			<table align=center width=800px>
-				<tr>
-					<td align=center width=250px>
-						<center>
-							<span style="font-size:24px"><a href="">Mohammed M. Alghamdi</a></span>
-						</center>
-					</td>
-					<td align=center width=100px>
-						<center>
-							<span style="font-size:24px"><a href="http://drhewang.com/">He Wang</a></span>
-						</center>
-					</td>
-					<td align=center width=150px>
-						<center>
-							<span style="font-size:24px"><a href="https://eps.leeds.ac.uk/computing/staff/115/professor-andy-bulpitt">Andrew J. Bulpitt</a></span>
-						</center>
-					</td>
-					<td align=center width=150px>
 
-						<center>
-							<span style="font-size:24px"><a href="https://eps.leeds.ac.uk/computing/staff/84/professor-david-hogg">David C. Hogg</a></span>
-						</center>
-					</td>
-				</tr>
-			</table>
-			<table align=center width=250px>
-				<tr>
-					<td align=center width=120px>
-						<center>
-							<span style="font-size:24px"><a href=''>[Paper]</a></span>
-						</center>
-					</td>
-					<td align=center width=120px>
-						<center>
-							<span style="font-size:24px"><a href='https://github.com/MohammedAlghamdi/talking-heads-acm-mm'>[GitHub]</a></span><br>
-						</center>
-					</td>
-				</tr>
-			</table>
-		</table>
-	</center>
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
 
-	<center>
-		<table align=center width=850px>
-			<tr>
-				<td width=260px>
-					<center>
-						<img class="round" style="width:1024px" src="./resources/Thumbnail.jpg"/>
-						<!-- <embed src="./resources/teaser.pdf" width="800px" height="2100px" /> -->
-					</center>
-				</td>
-			</tr>
-		</table>
-		<!-- <table align=center width=850px>
-			<tr>
-				<td>
-					This was a template originally made for <a href="http://richzhang.github.io/colorization/">Colorful Image Colorization</a>. The code can be found in this <a href="https://github.com/richzhang/webpage-template">repository</a>.
-				</td>
-			</tr>
-		</table> -->
-	</center>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div>
 
-	<hr>
-
-	<table align=center width=850px>
-		<center><h1>Abstract</h1></center>
-		<tr>
-			<td>
-
-				Synthesising video of talking heads from speech audio has many potential applications, such as video conferencing, video animation
-				production and virtual assistants. Although there has been considerable prior work on this task, the quality of generated videos is
-				typically limited in terms of overall realism and resolution. In this paper, we propose an audio-driven model that synthesises highresolution talking-head videos (1024 x 1024 in our experiments) from a single identity image.
-
-				Many previous models generate low-resolution video or cropped faces. Low resolution video is generally not suitable for deployment in many real world applications, such as a virtual assistant. A common approach has been to use intermediate features such as facial landmarks to map from audio to output video.  Another approach has been to edit an existing talking-head video to blend in a new mouth region synthesised from audio. 
-
-				 
+  </div>
+</nav> -->
 
 
-			</td>
-		</tr>
-	</table>
-	<br>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Talking Head from Speech Audio using a Pre-trained Image Generator</h1>
 
-	<hr>
-	<center><h1>Demo</h1></center>
-	<p align="center">
-		<iframe width="660" height="395" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen align="center"></iframe>
-	</p>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="">Mohammed M. Alghamdi</a><sup>1,2</sup></span>
+            <span class="author-block">
+              <a href="http://drhewang.com/">He Wang</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://eps.leeds.ac.uk/computing/staff/115/professor-andy-bulpitt">Andrew J. Bulpitt</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://eps.leeds.ac.uk/computing/staff/84/professor-david-hogg">David C. Hogg</a><sup>1</sup>,
+            </span>
+          </div>
 
-	<!-- <table align=center width=800px>
-		<br>
-		<tr>
-			<center>
-				<span style="font-size:28px"><a href=''>[Slides]</a>
-				</span>
-			</center>
-		</tr>
-	</table> -->
-	<hr>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Leeds,</span>
+            <span class="author-block"><sup>2</sup>Taif University</span>
+          </div>
 
-	<center><h1>Code</h1></center>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+<!--               <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span> -->
+                  </a>
+            </div>
 
-	<table align=center width=420px>
-		<center>
-			<tr>
-				<td>
-				</td>
-			</tr>
-		</center>
-	</table>
-	<table align=center width=400px>
-		<tr>
-			<td align=center width=400px>
-				<center>
-					<td><img class="round" style="width:450px" src="./resources/method_diagram.png"/></td>
-				</center>
-			</td>
-		</tr>
-	</table>
-	<!-- <table align=center width=850px>
-		<center>
-			<tr>
-				<td>
-					Short description if wanted
-				</td>
-			</tr>
-		</center>
-	</table> -->
-	<table align=center width=800px>
-		<br>
-		<tr><center>
-			<span style="font-size:28px">&nbsp;<a href='https://github.com/MohammedAlghamdi/talking-heads-acm-mm'>[GitHub]</a>
-			</center>
-		</span>
-	</table>
-	<br>
-	<hr>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-	
-
-	<center><h1>Results</h1></center>
-	
-	<center><p class="bottom-three">
-		will be showing videos generated using our method
-	</p></center>
-	<hr>
-	<center><h1>Comparative Evaluation</h1></center>
-	<center><p class="bottom-three">
-		will be showing videos comparing our method with others
-	</p></center>
-	<hr>
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img class="round" style="width:1024px" src="./resources/Thumbnail.jpg"/>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf"> 
+      </h2>
+    </div>
+  </div>
+</section>
 
 
-	<table align=center width=450px>
-		<center><h1>Paper</h1></center>
-		<tr>
-			<td><a href=""><img class="layered-paper-big" style="height:175px" src="./resources/paper.png"/></a></td>
-			<td><span style="font-size:14pt">M. Alghamdi, H. Wang, A. Bulpitt, D. Hogg<br>
-				<b>Talking Head from Speech Audio using a Pre-trained Image Generator</b><br>
-				In ACM Multimedia, 2022.<br>
-				(hosted on <a href="">ArXiv[coming soon]</a>)<br>
-				<!-- (<a href="./resources/camera-ready.pdf">camera ready</a>)<br> -->
-				<span style="font-size:4pt"><a href=""><br></a>
-				</span>
-			</td>
-		</tr>
-	</table>
-	<br>
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/steve.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/chair-tp.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/shiba.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/fullbody.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/blueshirt.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/mask.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/coffee.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/toby2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-	<!-- <table align=center width=600px>
-		<tr>
-			<td><span style="font-size:14pt"><center>
-				<a href="./resources/bibtex.txt">[Bibtex]</a>
-			</center></td>
-		</tr>
-	</table> -->
+ -->
+<section class="section">
+  <div class="container is-max-desktop">
+    
 
-	<hr>
-	<br>
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <!-- <div class="column is-four-fifths"> -->
+        <div class="column is-full-width">
+        <h2 class="title is-3">Overview</h2>
+        <div class="content has-text-justified">
+          <p>
+            Synthesising video of talking heads from speech audio has many potential applications, such as video conferencing, video animation production and virtual assistants. Although there has been considerable prior work on this task, the quality of generated videos is typically limited in terms of overall realism and resolution. Many previous models generate low-resolution video or cropped faces. Low resolution video is generally not suitable for deployment in many real world applications, such as a virtual assistant.
+          </p>
+          <p>
+            Recent advances in image synthesis have been successful at generating high-resolution images from noise (e.g. StyleGAN, BigGAN, etc). Karras et al. propose a style-based generator StyleGAN that synthesises high quality images that are largely indistinguishable from real ones. Some works have studied the latent space of StyleGAN (e.g. Image2StyleGAN, GANSPACE, InterFaceGAN) and discovered meaningful semantics for manipulating images. Recent work has leveraged the richness of a pre-trained StyleGAN generator to generate high-resolution videos from noise by decomposing (disentangling) the motion and content in the latent space (e.g. MoCoGAN-HD, StyleVideoGAN, StyleGAN-V). Tian et al. discover motion trajectories in the latent space to render high-resolution videos while image and motion generators are trained on different domain datasets. Inspired by these advances, we propose a novel method for generating high-resolution videos conditioned on speech audio by constructing trajectories in the latent space of a pre-trained image generator (StyleGAN).  </p> <br>
+            
+            <h2 class="title is-3">Model</h2>
+            <p>
+            Our framework uses a pre-trained image encoder (p2p) to find the latent code of a given identity image in the latent space of the generator. We then train a recurrent audio encoder along with a latent decoder to predict a sequence of latent displacements to the encoded identity image. In this stage, we show our approach can generate talking-head videos with accurate mouth movements conditioned on speech audio. To improve the visual quality of the generated videos further, we tune the generator on a single image or short video of a target subject using the PTI method.
+            </p>
 
-	<table align=center width=900px>
-		<tr>
-			<td width=400px>
-				<left>
-					<center><h1>Acknowledgements</h1></center>
-					The template for this webpage was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a>. The code can be found <a href="https://github.com/richzhang/webpage-template">here</a>.
-				</left>
-			</td>
-		</tr>
-	</table>
+            <br>
 
-<br>
+            <div class="columns is-vcentered interpolation-panel">
+
+              <div class="column interpolation-video-column">
+                <img class="round" style="width:1024px" src="./resources/model.jpg"/>
+              </div>
+            </div>
+
+
+
+
+            <h2 class="title is-3">Results</h2>
+
+            <p> Here, we show a video of multiple speakers driven by the same speech audio.  </p>
+            <div class="content has-text-centered">
+              <video id="replay-video"
+                     controls
+                     preload
+                     playsinline
+                     width="100%">
+                <source src="./resources/generated_video.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+
+            <h3 class="title is-5">Qualitative Comparisons</h3> 
+            <p> We compare our work against four state of the art models ( <a href="https://github.com/DinoMan/speech-driven-animation">Vougioukas et al.</a>, <a href="https://github.com/lelechen63/ATVGnet">Chen et al.</a> ,<a href="https://github.com/yzhou359/MakeItTalk">Zhou et al.</a> and <a href="https://github.com/Rudrabha/Wav2Lip">Prajwal et al.</a>) and use the official available codes of these models to generate the videos. Below, we show the comparisons on two widely used datasets: GRID and TCDTIMIT. </p>
+
+            <div class="columns is-vcentered interpolation-panel">
+            <div class="content has-text-centered">
+              <div class="column interpolation-video-column">
+                <!-- <p>Groudn Truth  Vougioukas et al.      Chen et al. Zhou et al. Prajwal et al. Ours </p> -->
+                <p>GRID</p>
+              <video id="replay-video"
+                     controls
+                     preload
+                     playsinline
+                     width="100%">
+                <source src="./resources/grid_comp.mp4"
+                        type="video/mp4">
+              </video>
+              <p>TCDTIMIT</p>
+              <video id="replay-video"
+                     controls
+                     preload
+                     playsinline
+                     width="100%">
+                <source src="./resources/tcdtimit_comp.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+            </div>
+            </div>
+
+            <h3 class="title is-5">Quantitative Comparisons</h3>
+             <p> We also evaluate our model on standard measures (PSNR, SSIM, FID and LMD). </p>
+
+<!--              <div class="columns is-vcentered interpolation-panel">
+
+              <div class="column interpolation-video-column"> -->
+                <img class="round" style="width:1024px" src="./resources/comp_table.png"/>
+              <!-- </div> -->
+            <!-- </div> -->
+
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+
+
+
+
+
+  </div>
+</section>
+
+<section class="section" id="Ack.">
+  <div class="container is-max-desktop content">
+    <h2 class="title"> ACKNOWLEDGMENTS </h2>
+    We are grateful to Rebecca Stone and Jose Martinez for their comments on this paper. This work was undertaken on ARC4, part of the High Performance Computing facilities at the University of Leeds. MA is supported by a PhD scholarship from Taif University.
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{alghamdi2022talking-head,
+	  title={Talking Head from Speech Audio using a Pre-trained Image Generator},
+	  author={Alghamdi, Mohammed M. and Wang, He and Bulpitt, Andrew J., and Hogg, David C.},
+	  booktitle={Proceedings of the 30th ACM International Conference on Multimedia},
+	  year={2022}
+} </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/mohammedalghamdi" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
-
